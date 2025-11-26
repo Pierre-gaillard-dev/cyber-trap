@@ -6,7 +6,10 @@ interface PageProps extends HTMLAttributes<HTMLDivElement> {
 
 const Page: FC<PageProps> = ({ children, className, ...props }) => {
   return (
-    <div className={`flex-1 flex flex-col ${className}`} {...props}>
+    <div
+      className={`flex-1 flex flex-col overflow-y-scroll ${className}`}
+      {...props}
+    >
       {children}
     </div>
   );
