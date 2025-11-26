@@ -15,8 +15,8 @@ const Header: FC = () => {
     navigate("/qr-code");
   };
 
-  const goViking = () => {
-    navigate("/viking");
+  const goBoss = () => {
+    navigate("/boss");
   };
 
   return (
@@ -35,7 +35,7 @@ const Header: FC = () => {
       />
       <img
         src={vikingIcon}
-        onClick={goViking}
+        onClick={goBoss}
         alt="Viking Icon"
         className="h-10 w-10"
       />
