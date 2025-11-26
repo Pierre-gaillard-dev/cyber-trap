@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Rosewood;
+  src: local("Rosewood Std Regular"),
+    url("/fonts/Rosewood Std Regular/Rosewood_Std_Regular.ttf")
+      format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@layer theme {
+  html {
+    --font-rosewood: "Rosewood", cursive;
+  }
+}
+
 html,
 body,
 #root {
