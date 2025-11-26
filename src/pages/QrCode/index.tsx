@@ -30,7 +30,7 @@ const QrCode: FC = () => {
     <Page>
       <div className="bg-white p-4 flex justify-center items-center aspect-square">
         <QRCode
-          value={`https://cyber-trap.fr/qr-code?t=${value}`}
+          value={`https://pierre-gaillard-dev.github.io/cyber-trap/qr-code?t=${value}`}
           size={256}
           bgColor={"#ffffff"}
           fgColor={"#000000"}
