@@ -57,13 +57,10 @@ const QrCode: FC = () => {
             <h3 className="text-xl font-bold mb-2">{event.title}</h3>
             <p className="text-gray-700">{event.description}</p>
             <p className="mt-4 font-semibold">Effect: {event.effect}</p>
-            <p className="text-sm text-gray-500 mt-2">
-              Frequency weight: {event.frequency}
-            </p>
           </div>
           <button
             onClick={handleButtonClick}
-            className="mt-6 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition mx-3"
+            className="my-6 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition mx-3"
           >
             Try again
           </button>

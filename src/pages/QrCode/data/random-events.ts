@@ -19,6 +19,26 @@ export const randomEvents: RandomEvent[] = [
     effect: "Go back 3 steps",
     frequency: 3,
   },
+  {
+    title: "Phishing Attempt",
+    description:
+      "You received a fake login page that tricked you into entering your credentials.",
+    effect: "Lose 2 turns",
+    frequency: 5,
+  },
+  {
+    title: "Random page",
+    description: "You arrived on a cooking recipe website.",
+    effect: "No effect",
+    frequency: 3,
+  },
+  {
+    title: "chocoblast",
+    description:
+      "You just got chocoblasted, you owe a 'Pain au chocolat' to your teammates.",
+    effect: "change place with your left neighbour",
+    frequency: 2,
+  },
 ];
 
 export function getRandomEvent(): RandomEvent | null {
