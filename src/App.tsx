@@ -6,10 +6,10 @@ const App = () => {
   return (
     <main className="h-full flex flex-col">
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
+        <Header />
       </BrowserRouter>
     </main>
   );

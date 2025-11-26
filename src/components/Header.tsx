@@ -1,11 +1,44 @@
 import type { FC } from "react";
-import menuicon from "@assets/menu.svg";
+import qrCodeIcon from "@assets/qr-code.svg";
+import homeIcon from "@assets/home.svg";
+import vikingIcon from "@assets/viking.svg";
+import { useNavigate } from "react-router";
 
 const Header: FC = () => {
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate("/");
+  };
+
+  const goQrCode = () => {
+    navigate("/qr-code");
+  };
+
+  const goViking = () => {
+    navigate("/viking");
+  };
+
   return (
-    <header className="w-full h-16 bg-blue-600 text-white flex items-center justify-center">
-      <h1 className="text-xl font-bold">CYBER' TRAP</h1>
-      <img src={menuicon} alt="Menu" className="absolute left-4 w-6 h-6" />
+    <header className="w-full bg-blue-600 text-white flex items-center justify-between py-6 px-10">
+      <img
+        src={qrCodeIcon}
+        onClick={goQrCode}
+        alt="QR Code Icon"
+        className="h-10 w-10"
+      />
+      <img
+        src={homeIcon}
+        onClick={goHome}
+        alt="Home Icon"
+        className="h-10 w-10"
+      />
+      <img
+        src={vikingIcon}
+        onClick={goViking}
+        alt="Viking Icon"
+        className="h-10 w-10"
+      />
     </header>
   );
 };
