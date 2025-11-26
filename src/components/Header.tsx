@@ -20,7 +20,7 @@ const Header: FC = () => {
   };
 
   return (
-    <header className="w-full bg-blue-600 text-white flex items-center justify-between py-6 px-10">
+    <header className="w-full bg-blue-900 text-white flex items-center justify-between py-6 px-10">
       <img
         src={qrCodeIcon}
         onClick={goQrCode}
