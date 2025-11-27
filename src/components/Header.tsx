@@ -21,24 +21,33 @@ const Header: FC = () => {
 
   return (
     <header className="w-full bg-blue-900 text-white flex items-center justify-between py-6 px-10">
-      <img
-        src={qrCodeIcon}
-        onClick={goQrCode}
-        alt="QR Code Icon"
-        className="h-10 w-10"
-      />
-      <img
-        src={homeIcon}
-        onClick={goHome}
-        alt="Home Icon"
-        className="h-10 w-10"
-      />
-      <img
-        src={vikingIcon}
-        onClick={goBoss}
-        alt="Viking Icon"
-        className="h-10 w-10"
-      />
+      <div className="flex flex-col items-center justify-center">
+        <img
+          src={qrCodeIcon}
+          onClick={goQrCode}
+          alt="QR Code Icon"
+          className="h-10 w-10"
+        />
+        QR Code
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <img
+          src={homeIcon}
+          onClick={goHome}
+          alt="Home Icon"
+          className="h-10 w-10"
+        />
+        Home
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <img
+          src={vikingIcon}
+          onClick={goBoss}
+          alt="Viking Icon"
+          className="h-10 w-10"
+        />
+        Boss
+      </div>
     </header>
   );
 };
