@@ -5,9 +5,10 @@ import { getRandomQuestions, type Question } from "./data/questons";
 const Boss: FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [answeredId, setAnsweredId] = useState<number | null>(null);
 
   const [currentState, setCurrentState] = useState<
-    "waiting" | "started" | "won" | "lost"
+    "waiting" | "started" | "response" | "won" | "lost"
   >("waiting");
 
   const handleStartQuiz = () => {
@@ -19,9 +20,29 @@ const Boss: FC = () => {
 
   const handleQuestionAnswered = (index: number) => {
     const currentQuestion = questions[currentQuestionIndex];
-    if (currentQuestion.answerId === index) {
+    if (currentState === "response") {
+      if (currentQuestion.answerId === answeredId) {
+        if (currentQuestionIndex + 1 < questions.length) {
+          setCurrentQuestionIndex(currentQuestionIndex + 1);
+          setCurrentState("started");
+        } else {
+          setCurrentState("won");
+        }
+      } else {
+        setCurrentState("lost");
+      }
+    } else if (currentState === "started") {
+      setCurrentState("response");
+      setAnsweredId(index);
+    }
+  };
+
+  const handleContinue = () => {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (currentQuestion.answerId === answeredId) {
       if (currentQuestionIndex + 1 < questions.length) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setCurrentState("started");
       } else {
         setCurrentState("won");
       }
@@ -52,7 +73,7 @@ const Boss: FC = () => {
           </button>
         </div>
       )}
-      {currentState === "started" && currentQuestion && (
+      {["started", "response"].includes(currentState) && currentQuestion && (
         <div className="flex flex-col items-center justify-center h-full">
           <h2 className="text-2xl font-bold mb-4 text-center">
             {currentQuestion.question}
@@ -62,12 +83,30 @@ const Boss: FC = () => {
               <button
                 key={index}
                 onClick={() => handleQuestionAnswered(index)}
-                className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition text-left"
+                className={
+                  "bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition text-left" +
+                  (currentState === "response" &&
+                  currentQuestion.answerId === index
+                    ? " bg-green-300"
+                    : "") +
+                  (currentState === "response" &&
+                  currentQuestion.answerId !== index
+                    ? " bg-red-300"
+                    : "")
+                }
               >
                 {answer}
               </button>
             ))}
           </div>
+          {currentState === "response" && (
+            <button
+              onClick={handleContinue}
+              className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+            >
+              Continue
+            </button>
+          )}
         </div>
       )}
 
