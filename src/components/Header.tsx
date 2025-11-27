@@ -20,8 +20,8 @@ const Header: FC = () => {
   };
 
   return (
-    <header className="w-full bg-blue-900 text-white flex items-center justify-between py-6 px-10">
-      <div className="flex flex-col items-center justify-center">
+    <header className="w-full bg-blue-900 text-white flex items-center justify-between py-6">
+      <div className="flex flex-col items-center justify-center flex-1">
         <img
           src={qrCodeIcon}
           onClick={goQrCode}
@@ -30,7 +30,7 @@ const Header: FC = () => {
         />
         QR Code
       </div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center flex-1">
         <img
           src={homeIcon}
           onClick={goHome}
@@ -39,7 +39,7 @@ const Header: FC = () => {
         />
         Home
       </div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center flex-1">
         <img
           src={vikingIcon}
           onClick={goBoss}
