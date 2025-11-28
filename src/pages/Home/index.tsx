@@ -31,10 +31,7 @@ const Home: FC = () => {
           <p>
             Draw a card that corresponds to the color and answer the question.
           </p>
-          <p>
-            You cannot advance in the board until you answer the question card
-            correctly.
-          </p>
+          <p>If you answer correctly, you move to the case</p>
           <p>
             Some questions might be more difficult than others, so you need to
             stay put until you answer a question in the corresponding color
@@ -51,8 +48,8 @@ const Home: FC = () => {
           </h3>
           <p>To do that you will need a boss card.</p>
           <p>
-            You can win the boss card by landing on “the boss” space and
-            correctly answering the question or fulfilling other activities!{" "}
+            You can win a boss card by landing on a weapon space and correctly
+            answering the question
           </p>
           <p>
             If you land at the end of the board without “the boss” card you have
