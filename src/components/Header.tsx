@@ -26,7 +26,7 @@ const Header: FC = () => {
           src={qrCodeIcon}
           onClick={goQrCode}
           alt="QR Code Icon"
-          className="h-10 w-10"
+          className="h-6 w-6"
         />
         QR Code
       </div>
@@ -35,7 +35,7 @@ const Header: FC = () => {
           src={homeIcon}
           onClick={goHome}
           alt="Home Icon"
-          className="h-10 w-10"
+          className="h-6 w-6"
         />
         Home
       </div>
@@ -44,7 +44,7 @@ const Header: FC = () => {
           src={vikingIcon}
           onClick={goBoss}
           alt="Viking Icon"
-          className="h-10 w-10"
+          className="h-6 w-6"
         />
         Boss
       </div>

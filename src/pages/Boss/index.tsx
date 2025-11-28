@@ -61,16 +61,30 @@ const Boss: FC = () => {
   return (
     <Page>
       {currentState === "waiting" && (
-        <div className="flex flex-col items-center justify-center h-full">
-          <h1 className="text-4xl font-bold mb-6 text-center">
-            Get ready to fight the boss !
-          </h1>
-          <button
-            onClick={handleStartQuiz}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-          >
-            Start Quiz
-          </button>
+        <div className="flex flex-col items-center justify-center h-full relative">
+          {/* Background video with poster image */}
+          <video
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
+            src="/viking.mp4"
+            poster="/viking.png"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+
+          {/* Content overlay */}
+          <div className="relative z-10 flex flex-col items-center">
+            <h1 className="text-4xl font-bold mb-6 text-center">
+              Get ready to fight the boss !
+            </h1>
+            <button
+              onClick={handleStartQuiz}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+            >
+              Start Quiz
+            </button>
+          </div>
         </div>
       )}
       {["started", "response"].includes(currentState) && currentQuestion && (
@@ -125,13 +139,22 @@ const Boss: FC = () => {
       )}
 
       {currentState === "lost" && (
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className="flex relative flex-col items-center justify-center h-full overflow-hidden">
+          <video
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
+            src="/viking.mp4"
+            poster="/viking.png"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
           <h1 className="text-4xl font-bold mb-6 text-center">
             You were defeated by the boss. Try again!
           </h1>
           <button
             onClick={handleStartQuiz}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition z-10"
           >
             Play Again
           </button>
